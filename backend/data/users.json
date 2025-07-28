@@ -1,0 +1,12 @@
+[
+  {
+    "id": "mdnfxq7h3thjr03ojk3",
+    "firstName": "Juan",
+    "lastName": "Pérez",
+    "email": "juan@test.com",
+    "password": "$2a$12$5Qpmn.O04hqbSe7SZeZjbehm2D8iGQfcvI34UT2CwH98saWwgb76e",
+    "isActive": true,
+    "createdAt": "2025-07-28T18:27:50.373Z",
+    "updatedAt": "2025-07-28T18:27:50.379Z"
+  }
+]

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Mi Aplicación</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Crear Cuenta</h1>
+                <p>Únete a nuestra comunidad</p>
+            </div>
+            
+            <form id="registerForm" class="register-form">
+                <div class="form-group">
+                    <label for="firstName">Nombre</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Tu nombre" required>
+                    <span class="error-message" id="firstNameError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Apellido</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Tu apellido" required>
+                    <span class="error-message" id="lastNameError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Tu contraseña" required>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Contraseña</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirma tu contraseña" required>
+                    <span class="error-message" id="confirmPasswordError"></span>
+                </div>
+                
+                <button type="submit" class="submit-btn">Crear Cuenta</button>
+            </form>
+            
+            <div class="form-footer">
+                <p>¿Ya tienes una cuenta? <a href="index.html">Inicia sesión aquí</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/register.js"></script>
+</body>
+</html> 
