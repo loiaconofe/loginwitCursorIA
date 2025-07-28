@@ -1,12 +1,23 @@
 [
   {
-    "id": "mdnfxq7h3thjr03ojk3",
-    "firstName": "Juan",
-    "lastName": "Pérez",
-    "email": "juan@test.com",
-    "password": "$2a$12$5Qpmn.O04hqbSe7SZeZjbehm2D8iGQfcvI34UT2CwH98saWwgb76e",
+    "id": "mdnlsre0deq1onvmelk",
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test@example.com",
+    "password": "$2a$12$6CeC7izNwtPFambhw.GScuyrdm.YDOgKkR2dUeEeIEU1bKe0Q0aOq",
     "isActive": true,
-    "createdAt": "2025-07-28T18:27:50.373Z",
-    "updatedAt": "2025-07-28T18:27:50.379Z"
+    "createdAt": "2025-07-28T21:11:56.321Z",
+    "updatedAt": "2025-07-28T21:11:56.328Z"
+  },
+  {
+    "id": "mdnlvu4sxmb02vraypm",
+    "firstName": "fede",
+    "lastName": "rico",
+    "email": "loiaconofe@gmail.com",
+    "password": "$2a$12$h4am06N9disMHT1kvTGll.YsOV4NwJN29HjYc79XrXAkI3Ekm3gAy",
+    "isActive": true,
+    "lastLogin": "2025-07-28T21:14:41.105Z",
+    "createdAt": "2025-07-28T21:14:19.851Z",
+    "updatedAt": "2025-07-28T21:14:41.105Z"
   }
 ]

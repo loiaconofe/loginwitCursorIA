@@ -174,25 +174,49 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
-        // Si el formulario es válido, simular envío
+        // Si el formulario es válido, enviar al backend
         if (isValid) {
             // Mostrar estado de carga
             submitBtn.textContent = 'Creando cuenta...';
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
-            // Simular envío (aquí iría tu lógica de registro)
-            setTimeout(() => {
-                alert('¡Cuenta creada exitosamente!\nNombre: ' + firstName + ' ' + lastName + '\nEmail: ' + email);
-                
+            // Enviar datos al backend
+            fetch('http://localhost:3000/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Registro exitoso
+                    alert('¡Cuenta creada exitosamente!\nNombre: ' + firstName + ' ' + lastName + '\nEmail: ' + email);
+                    
+                    // Limpiar formulario
+                    registerForm.reset();
+                } else {
+                    // Registro fallido
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error de conexión. Verifica que el servidor esté corriendo.');
+            })
+            .finally(() => {
                 // Restaurar botón
                 submitBtn.textContent = 'Crear Cuenta';
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
-                
-                // Limpiar formulario
-                registerForm.reset();
-            }, 2000);
+            });
         }
     });
 

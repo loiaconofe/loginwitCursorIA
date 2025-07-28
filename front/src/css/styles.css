@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 50%, #374151 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -24,8 +24,9 @@ body {
     background: white;
     padding: 40px 30px;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(5, 150, 105, 0.1);
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(5, 150, 105, 0.1);
 }
 
 .form-header {
@@ -67,21 +68,26 @@ body {
     background: #f8f9fa;
 }
 
+.form-group input:hover {
+    border-color: #10b981;
+    background: #ecfdf5;
+}
+
 .form-group input:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #059669;
     background: white;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
 }
 
 .form-group input.error {
-    border-color: #e74c3c;
-    background: #fff5f5;
+    border-color: #ef4444;
+    background: #fef2f2;
 }
 
 .error-message {
     display: block;
-    color: #e74c3c;
+    color: #ef4444;
     font-size: 12px;
     margin-top: 5px;
     min-height: 16px;
@@ -90,7 +96,7 @@ body {
 .submit-btn {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
     color: white;
     border: none;
     border-radius: 10px;
@@ -103,7 +109,7 @@ body {
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
 }
 
 .submit-btn:active {
@@ -123,14 +129,14 @@ body {
 }
 
 .form-footer a {
-    color: #667eea;
+    color: #059669;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .form-footer a:hover {
-    color: #764ba2;
+    color: #047857;
     text-decoration: underline;
 }
 
@@ -196,12 +202,25 @@ body {
 
 /* Estados de carga */
 .submit-btn.loading {
-    background: #ccc;
+    background: linear-gradient(135deg, #6ee7b7 0%, #10b981 100%);
     cursor: not-allowed;
     transform: none;
+    animation: pulse-green 2s infinite;
 }
 
 .submit-btn.loading:hover {
     transform: none;
     box-shadow: none;
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(5, 150, 105, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0);
+    }
 } 

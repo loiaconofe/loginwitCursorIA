@@ -77,25 +77,52 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
-        // Si el formulario es válido, simular envío
+        // Si el formulario es válido, enviar al backend
         if (isValid) {
             // Mostrar estado de carga
             submitBtn.textContent = 'Iniciando sesión...';
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
-            // Simular envío (aquí iría tu lógica de autenticación)
-            setTimeout(() => {
-                alert('¡Inicio de sesión exitoso!\nEmail: ' + email);
-                
+            // Enviar datos al backend
+            fetch('http://localhost:3000/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Login exitoso
+                    alert('¡Inicio de sesión exitoso!\nEmail: ' + email);
+                    
+                    // Guardar token en localStorage
+                    if (data.data && data.data.token) {
+                        localStorage.setItem('token', data.data.token);
+                    }
+                    
+                    // Limpiar formulario
+                    loginForm.reset();
+                } else {
+                    // Login fallido
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error de conexión. Verifica que el servidor esté corriendo.');
+            })
+            .finally(() => {
                 // Restaurar botón
                 submitBtn.textContent = 'Iniciar Sesión';
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
-                
-                // Limpiar formulario
-                loginForm.reset();
-            }, 2000);
+            });
         }
     });
 

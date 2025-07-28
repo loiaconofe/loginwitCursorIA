@@ -8,7 +8,11 @@
     "dev": "nodemon src/server.js",
     "test": "jest",
     "test:auth": "node test-auth.js",
-    "test:bug": "node test-login-bug.js"
+    "test:bug": "node test-login-bug.js",
+    "debug:auth": "node debug-auth.js",
+    "quick:test": "node quick-test.js",
+    "test:restart": "node test-server-restart.js",
+    "test:frontend": "node test-frontend-login.js"
   },
   "keywords": ["login", "register", "authentication", "nodejs", "express", "in-memory"],
   "author": "Tu Nombre",

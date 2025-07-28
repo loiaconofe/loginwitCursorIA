@@ -73,13 +73,16 @@ class InMemoryDatabase {
         // Importar User aquí para evitar dependencias circulares
         const User = require('../models/User');
         
+        let user;
+        
         // Si userData ya es una instancia de User, solo agregar el ID
         if (userData instanceof User) {
             userData.id = this.generateId();
-            this.users.set(userData.id, userData);
+            user = userData;
+            this.users.set(user.id, user);
         } else {
             // Si es un objeto plano, crear instancia de User
-            const user = new User({
+            user = new User({
                 id: this.generateId(),
                 ...userData,
                 isActive: true,
@@ -91,7 +94,7 @@ class InMemoryDatabase {
         }
         
         await this.saveToFile();
-        return this.users.get(this.users.size > 0 ? Array.from(this.users.keys()).pop() : null);
+        return user;
     }
 
     // Buscar usuario por email
