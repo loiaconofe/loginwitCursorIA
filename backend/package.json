@@ -7,12 +7,12 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "test": "jest",
-    "test:auth": "node test-auth.js",
-    "test:bug": "node test-login-bug.js",
-    "debug:auth": "node debug-auth.js",
-    "quick:test": "node quick-test.js",
-    "test:restart": "node test-server-restart.js",
-    "test:frontend": "node test-frontend-login.js"
+    "test:auth": "node tests/test-auth.js",
+    "test:bug": "node tests/test-login-bug.js",
+    "debug:auth": "node tests/debug-auth.js",
+    "quick:test": "node tests/quick-test.js",
+    "test:restart": "node tests/test-server-restart.js",
+    "test:frontend": "node tests/test-frontend-login.js"
   },
   "keywords": ["login", "register", "authentication", "nodejs", "express", "in-memory"],
   "author": "Tu Nombre",
