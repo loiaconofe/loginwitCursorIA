@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { db } = require('../config/database');
 const User = require('../models/User');
+const { getJwtSecret } = require('../utils/config');
 
 // Middleware para proteger rutas
 const protect = async (req, res, next) => {
@@ -13,7 +14,7 @@ const protect = async (req, res, next) => {
             token = req.headers.authorization.split(' ')[1];
 
             // Verificar el token
-            const decoded = jwt.verify(token, process.env.JWT_SECRET || 'tu-secreto-jwt');
+            const decoded = jwt.verify(token, getJwtSecret());
 
             // Obtener el usuario del token
             const user = await db.findById(decoded.userId);
@@ -61,7 +62,7 @@ const optionalAuth = async (req, res, next) => {
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         try {
             token = req.headers.authorization.split(' ')[1];
-            const decoded = jwt.verify(token, process.env.JWT_SECRET || 'tu-secreto-jwt');
+            const decoded = jwt.verify(token, getJwtSecret());
             
             const user = await db.findById(decoded.userId);
             if (user && user.isActive) {

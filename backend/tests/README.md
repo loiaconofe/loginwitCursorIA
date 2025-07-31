@@ -70,6 +70,16 @@ Script de debug para diagnosticar problemas de autenticación:
 
 **Comando:** `npm run debug:auth`
 
+### `test-config-validation.js`
+Test para verificar la validación de configuración:
+- Verificación de variables de entorno requeridas
+- Test de la función `requireEnv`
+- Test de la función `getJwtSecret`
+- Test de la función `validateConfig`
+- Test de generación y verificación de JWT con secret validado
+
+**Comando:** `npm run test:config`
+
 ## Ejecución de Tests
 
 Para ejecutar todos los tests en secuencia:
@@ -81,6 +91,7 @@ npm run test:restart
 npm run quick:test
 npm run test:frontend
 npm run debug:auth
+npm run test:config
 ```
 
 ## Notas Importantes

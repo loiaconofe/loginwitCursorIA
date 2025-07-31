@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { User } = require('../src/models/User');
 const { InMemoryDatabase } = require('../src/config/database');
+const { getJwtSecret } = require('../src/utils/config');
 
 // Test 1: User validation
 console.log('=== Test 1: User validation ===');
@@ -115,7 +116,7 @@ console.log('User found by ID:', foundUserById ? foundUserById.name : 'Not found
 console.log('\n=== Test 14: JWT token generation ===');
 const token = jwt.sign(
     { userId: user.id },
-    process.env.JWT_SECRET || 'your-secret-key',
+    getJwtSecret(),
     { expiresIn: '24h' }
 );
 console.log('JWT token generated:', token.substring(0, 50) + '...');
@@ -123,7 +124,7 @@ console.log('JWT token generated:', token.substring(0, 50) + '...');
 // Test 15: JWT token verification
 console.log('\n=== Test 15: JWT token verification ===');
 try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
+    const decoded = jwt.verify(token, getJwtSecret());
     console.log('JWT token verified:', decoded);
 } catch (error) {
     console.log('JWT token verification failed:', error.message);

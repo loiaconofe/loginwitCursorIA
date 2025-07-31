@@ -8,16 +8,5 @@
     "isActive": true,
     "createdAt": "2025-07-28T21:11:56.321Z",
     "updatedAt": "2025-07-28T21:11:56.328Z"
-  },
-  {
-    "id": "mdnlvu4sxmb02vraypm",
-    "firstName": "fede",
-    "lastName": "rico",
-    "email": "loiaconofe@gmail.com",
-    "password": "$2a$12$h4am06N9disMHT1kvTGll.YsOV4NwJN29HjYc79XrXAkI3Ekm3gAy",
-    "isActive": true,
-    "lastLogin": "2025-07-28T21:14:41.105Z",
-    "createdAt": "2025-07-28T21:14:19.851Z",
-    "updatedAt": "2025-07-28T21:14:41.105Z"
   }
 ]

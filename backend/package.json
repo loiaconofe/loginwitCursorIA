@@ -12,7 +12,8 @@
     "debug:auth": "node tests/debug-auth.js",
     "quick:test": "node tests/quick-test.js",
     "test:restart": "node tests/test-server-restart.js",
-    "test:frontend": "node tests/test-frontend-login.js"
+    "test:frontend": "node tests/test-frontend-login.js",
+    "test:config": "node tests/test-config-validation.js"
   },
   "keywords": ["login", "register", "authentication", "nodejs", "express", "in-memory"],
   "author": "Tu Nombre",

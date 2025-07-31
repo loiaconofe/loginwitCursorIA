@@ -3,9 +3,13 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const { connectDB, db } = require('./config/database');
 const authRoutes = require('./routes/auth');
+const { validateConfig } = require('./utils/config');
 
 // Cargar variables de entorno
 dotenv.config();
+
+// Validar configuración requerida
+validateConfig();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
