@@ -29,7 +29,18 @@ loginwitCursorIA/
 │   │   │   └── User.js       # Modelo de usuario
 │   │   ├── routes/
 │   │   │   └── auth.js
+│   │   ├── utils/
+│   │   │   └── config.js     # Validación de configuración
 │   │   └── server.js
+│   ├── tests/                # Tests organizados
+│   │   ├── test-auth.js
+│   │   ├── test-login-bug.js
+│   │   ├── test-server-restart.js
+│   │   ├── quick-test.js
+│   │   ├── test-frontend-login.js
+│   │   ├── debug-auth.js
+│   │   ├── test-config-validation.js
+│   │   └── README.md
 │   ├── data/                 # Datos persistentes (se crea automáticamente)
 │   │   └── users.json        # Archivo de usuarios
 │   ├── package.json
@@ -98,10 +109,12 @@ loginwitCursorIA/
 
 ### 🛡️ Seguridad
 - Contraseñas hasheadas con bcrypt
-- JWT para autenticación
+- JWT para autenticación con validación estricta de configuración
 - Validación de datos con express-validator
 - Middleware de autenticación
 - CORS configurado
+- **Validación de variables de entorno requeridas** (JWT_SECRET obligatorio)
+- **Sin valores por defecto inseguros** para secretos
 
 ### 💾 Base de Datos en Memoria
 - **Almacenamiento en memoria** para máximo rendimiento
@@ -276,12 +289,23 @@ JWT_SECRET=tu-super-secreto-jwt-muy-seguro-y-unico
 CORS_ORIGIN=http://localhost:3000
 ```
 
+**⚠️ Importante:** La variable `JWT_SECRET` es **OBLIGATORIA**. Sin ella, la aplicación no iniciará por motivos de seguridad.
+
 ## 📝 Scripts Disponibles
 
 ### Backend
 - `npm start` - Iniciar en producción
 - `npm run dev` - Iniciar en desarrollo con nodemon
 - `npm test` - Ejecutar tests
+
+### Tests Organizados
+- `npm run test:auth` - Test completo de autenticación
+- `npm run test:bug` - Test específico del bug de login
+- `npm run test:restart` - Test de persistencia después de reinicio
+- `npm run quick:test` - Test rápido de bcrypt
+- `npm run test:frontend` - Test de integración frontend-backend
+- `npm run debug:auth` - Script de debug para autenticación
+- `npm run test:config` - Test de validación de configuración
 
 ## 🔍 Monitoreo y Estadísticas
 
@@ -314,3 +338,81 @@ Si tienes problemas o preguntas:
 1. Revisa la documentación
 2. Busca en los issues existentes
 3. Crea un nuevo issue con detalles del problema
+
+## 🤖 Asistencia con CursorIA
+
+Este proyecto fue desarrollado con la asistencia de **CursorIA**, un asistente de programación inteligente. Durante el desarrollo, se implementaron las siguientes mejoras y funcionalidades:
+
+### 🔧 Mejoras Implementadas
+
+#### 1. **Organización de Tests**
+- ✅ Reorganización de archivos de test en carpeta `backend/tests/`
+- ✅ Documentación completa de cada test en `tests/README.md`
+- ✅ Actualización de scripts en `package.json`
+- ✅ Mantenimiento de funcionalidad existente
+
+#### 2. **Validación de Configuración de Seguridad**
+- ✅ Eliminación de valores por defecto inseguros para JWT_SECRET
+- ✅ Implementación de validación estricta de variables de entorno
+- ✅ Creación de utilidades de configuración (`backend/src/utils/config.js`)
+- ✅ Validación al inicio del servidor
+- ✅ Tests específicos para validación de configuración
+
+#### 3. **Debugging y Resolución de Bugs**
+- ✅ Identificación y resolución del bug de login con contraseñas incorrectas
+- ✅ Creación de múltiples scripts de test para diferentes escenarios
+- ✅ Debugging de problemas de persistencia de base de datos
+- ✅ Verificación de integridad de objetos User después de carga desde JSON
+
+#### 4. **Mejoras de Estructura**
+- ✅ Separación clara de responsabilidades
+- ✅ Documentación mejorada
+- ✅ Scripts de test organizados y documentados
+- ✅ Validación de seguridad robusta
+
+### 🛠️ Funcionalidades Desarrolladas
+
+#### **Sistema de Tests Completo**
+```bash
+# Tests disponibles
+npm run test:auth          # Test completo de autenticación
+npm run test:bug           # Test del bug de login
+npm run test:restart       # Test de persistencia
+npm run quick:test         # Test rápido de bcrypt
+npm run test:frontend      # Test de integración
+npm run debug:auth         # Script de debug
+npm run test:config        # Test de configuración
+```
+
+#### **Validación de Seguridad**
+- La aplicación **no iniciará** si `JWT_SECRET` no está configurado
+- Validación temprana de configuración requerida
+- Mensajes de error claros y específicos
+
+#### **Base de Datos en Memoria Robusta**
+- Persistencia automática en archivo JSON
+- Carga correcta de objetos User con métodos
+- Manejo de errores mejorado
+
+### 📚 Documentación Generada
+
+- **README.md principal** - Documentación completa del proyecto
+- **tests/README.md** - Documentación específica de tests
+- **env.example** - Ejemplo de configuración con notas de seguridad
+- **Comentarios en código** - Explicaciones detalladas de funcionalidades
+
+### 🎯 Beneficios de la Asistencia con CursorIA
+
+1. **Desarrollo Rápido**: Implementación eficiente de funcionalidades complejas
+2. **Calidad de Código**: Mejores prácticas y patrones de diseño
+3. **Debugging Eficiente**: Identificación rápida y resolución de problemas
+4. **Documentación Completa**: Explicaciones claras y ejemplos de uso
+5. **Seguridad Mejorada**: Implementación de validaciones y mejores prácticas de seguridad
+
+### 💡 Consejos para Usar CursorIA
+
+- **Sé específico** en tus solicitudes
+- **Proporciona contexto** sobre el problema
+- **Revisa el código** generado antes de implementarlo
+- **Pregunta por explicaciones** cuando algo no esté claro
+- **Solicita documentación** para funcionalidades complejas
